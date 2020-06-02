@@ -22,6 +22,7 @@ object Food {
       case "meat" => Some(Food.meat)
       case "vegetables" => Some(Food.vegetables)
       case "plants" => Some(Food.plants)
+      case _ => None
     }
 
 }

@@ -47,9 +47,19 @@ object RecursiveData {
  */
 sealed trait Tree[A] {
 
-  val node: Tree[A]
+  val right: Tree[A]
 
-  val leaf: A
+  val left: Tree[A]
 
+}
+
+case class Node[A](value: A, l: Tree[A], r: Tree[A]) extends Tree[A] {
+  override val left: Tree[A] = l
+  override val right: Tree[A] = r
+}
+
+case class TreeNil[A]() extends Tree[A] {
+  override val right: Tree[A] = null
+  override val left: Tree[A] = null
 }
 

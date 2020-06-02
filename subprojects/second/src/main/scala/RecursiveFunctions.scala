@@ -1,5 +1,3 @@
-
-
 import scala.annotation.tailrec
 
 /** Реализуйте функции для решения следующих задач.
@@ -10,7 +8,7 @@ import scala.annotation.tailrec
  */
 object RecursiveFunctions {
 
-  def length[A](as: List[A]): Int = {
+  def listLength[A](as: List[A]): Int = {
     @tailrec
     def loop(rem: List[A], agg: Int): Int = rem match {
       case Cons(_, tail) => loop(tail, agg + 1)
@@ -32,9 +30,6 @@ object RecursiveFunctions {
     }
 
     loop(list, Nil())
-  }
-
-  def main(args: Array[String]): Unit = {
   }
 
   // используйте функцию из пункта (a) здесь, не изменяйте сигнатуру
