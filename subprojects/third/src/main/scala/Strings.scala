@@ -16,8 +16,6 @@ object Strings {
   def testInterpolations(name: String, age: Int): String =
     s"Hi my name is ${name} and I am ${age} years old."
 
-  def prikol(): String = "hello"
-
   /* c) Добавьте два числа в следующую строку:
    *       Hi,
    *       now follows a quite hard calculation. We try to add:

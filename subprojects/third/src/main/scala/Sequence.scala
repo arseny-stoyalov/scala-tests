@@ -17,14 +17,17 @@ object Sequence {
   /* a) Найдите последний элемент Seq.
    *
    */
-  def testLastElement[A](seq: Seq[A]): Option[A] = Option(seq.last)
+  def testLastElement[A](seq: Seq[A]): Option[A] =
+    if (seq.isEmpty)
+      None
+    else Option(seq.last)
 
   /* b) Объедините две Seq (то есть Seq(1, 2) и Seq(3, 4) образуют Seq((1, 3), (2, 4)))
    *    - если Seq длиннее игнорируйте оставшиеся элементы.
    *    
    */
 
-  def testZip[A](a: Seq[A], b: Seq[A]): Seq[(A, A)] = a zip b
+  def testZip[A](a: Seq[A], b: Seq[A]): Seq[(A, A)] = a.take(2) zip b.take(2)
 
   /* c) Проверьте, выполняется ли условие для всех элементов в Seq.
    *    
@@ -45,8 +48,7 @@ object Sequence {
    *    
    */
   def testFlatMap[A, B](seq: Seq[A])(f: A => Seq[B]): Seq[B] = {
-    val res: Seq[B] = seq.foldLeft(f(seq.head))((m, n) => m ++ f(n))
-    if (res.length > 2) res.drop(2)
-    else res.drop(1)
+    seq.foldLeft(Seq[B]())((m, n) => m ++ f(n))
   }
+
 }

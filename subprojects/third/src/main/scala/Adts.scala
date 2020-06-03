@@ -68,7 +68,7 @@ object Adts {
 
   // e) Обработайте исключения функции с побочным эффектом вернув 0.
   def goodOldJava(impure: String => Int, str: String): Try[Int] = {
-      Try(impure) match {
+      Try(impure(str)) match {
       case Success(_) => Success(0)
       case Failure(f) => Failure(f)
     }
